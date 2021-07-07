@@ -3,6 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import { Link } from 'react-router-dom';
+import { Router, hashHistory as history } from 'react-router-dom';
+import routes from './routes/routes';
 const  user = {
   date: new Date(),
   text: 'Mejores pilotos de la f1',
@@ -12,17 +15,31 @@ const  user = {
   }
 }
 class MESSAGE extends React.Component {
+  
   constructor(props) {
   super(props);
   }
   click() {
-    window.location.href = "localhost:3000/register";
-
+<Link to="/some/where">Click me</Link>
   }
   render() {
-    return (<>
+      return (
+        <div>
+          <header>
+            This is my website!
+          </header>
+    
+          <main>
+          <>
       <div className="Box">{<Clock/>} tiene usted {user.author.ages[1]} años
       </div><div className="Nav"><Nav /><button className="register" onClick="click()">Register</button></div></>
+            {this.props.children}
+          </main>
+    
+          <footer>
+            Your copyright message
+          </footer>
+        </div>
     )
   }
 }
@@ -67,12 +84,11 @@ class Clock extends React.Component {
     );
   }
 }
+// You can choose your kind of history here (e.g. browserHistory)
+// Your routes.js file
+
 ReactDOM.render(
-  <MESSAGE />,
-  document.getElementById('root1')
-);
-ReactDOM.render(
-  <MESSAGE />,
+  <Router routes={routes} history={history} />,
   document.getElementById('root')
 );
 
@@ -80,3 +96,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+export default MESSAGE;

@@ -44,5 +44,4 @@ const comment = {
     avatarUrl: 'https://placekitten.com/g/64/64',
   },
 };
-setInterval(tick, 1000);
 export default Comment;

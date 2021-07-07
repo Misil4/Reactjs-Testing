@@ -12,7 +12,7 @@ code {
     monospace;
 }
 .Box {
-background-color: purple;
+background-color: orange;
 position: relative;
 bottom: 1rem;
 width: 20%;
@@ -20,18 +20,19 @@ height: 39rem;
 }
 ul, li {
   display: inline;
+  margin: 1rem;
 }
 .Nav {
   height: 3rem;
   position: relative;
   left: 16rem;
   bottom: 40rem;
-  background-color: purple;
+  background-color: orange;
 }
 .register {
   height: 80%;
   width: 6%;
   position: relative;
-  left: 40rem;
+  left: 38rem;
   background-color: red;
 }

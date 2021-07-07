@@ -15,25 +15,27 @@ class MESSAGE extends React.Component {
   constructor(props) {
   super(props);
   }
+  click() {
+    window.location.href = "localhost:3000/register";
+
+  }
   render() {
     return (<>
       <div className="Box">{<Clock/>} tiene usted {user.author.ages[1]} años
-      </div><div className="Nav"><Nav /><button className="register">Register</button></div></>
+      </div><div className="Nav"><Nav /><button className="register" onClick="click()">Register</button></div></>
     )
   }
 }
 class Nav extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      nav: ['Inicio','Historia','Tienda','Ver mas']
+    }
   }
   render() {
     return (
-        <li>
-        <ul>Inicio</ul>
-        <ul>Historia</ul>
-        <ul>Tienda</ul>
-        <ul>Ver mas</ul>
-        </li>
+       <ul>{this.state.nav.map((menu) =><li key={menu}> {menu} </li>)}</ul>
     )
   }
 }
@@ -65,6 +67,10 @@ class Clock extends React.Component {
     );
   }
 }
+ReactDOM.render(
+  <MESSAGE />,
+  document.getElementById('root1')
+);
 ReactDOM.render(
   <MESSAGE />,
   document.getElementById('root')

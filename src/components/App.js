@@ -1,7 +1,6 @@
-
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 const  user = {
   date: new Date(),
   text: 'Mejores pilotos de la f1',
@@ -14,6 +13,10 @@ class MESSAGE extends React.Component {
   
   constructor(props) {
   super(props);
+  this.state = {
+    date: new Date()
+  }
+  this.click = this.click.bind(this);
   }
   click() {
   }
@@ -21,18 +24,17 @@ class MESSAGE extends React.Component {
       return (
         <div>
           <header>
-            This is my website!
           </header>
     
           <main>
           <>
       <div className="Box">{<Clock/>} tiene usted {user.author.ages[1]} años
-      </div><div className="Nav"><Nav /><button className="register" onClick="click()">Register</button></div></>
+      </div><div className="Nav"><Nav /><Link to="/index.html">Register</Link></div></>
             {this.props.children}
           </main>
     
           <footer>
-            Your copyright message
+            Copyright {user.author.names[0]} |{this.state.date.getFullYear()}
           </footer>
         </div>
     )
@@ -51,6 +53,26 @@ class Nav extends React.Component {
     )
   }
 }
+const lista = {
+  hoy: ['Cocinar','Dormir','Deporte'],
+  mañana: ['Programar','Comer','Jugar']
+}
+class Historia extends React.Component {
+    render() {
+    return (
+      <div>
+        <h1>Hoy</h1><br />
+        <ul>
+          {lista.hoy.map((lista) =><li key={lista}>{lista}</li>)}
+        </ul>
+        <h1>Mañana</h1><br />
+        <ul>
+        {lista.mañana.map((lista)=><li key={lista}>{lista}</li>)}
+        </ul>
+      </div>
+    )
+    }
+  }
 class Clock extends React.Component {
   constructor(props) {
     super(props);
@@ -81,4 +103,30 @@ class Clock extends React.Component {
 }
 // You can choose your kind of history here (e.g. browserHistory)
 // Your routes.js file
-export default MESSAGE;
+export default function App() {
+  return (
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/clock">Clock</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Switch>
+          <Route path="/clock">
+            <Historia/>
+          </Route>
+          <Route path="/">
+            <MESSAGE />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+}

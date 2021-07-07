@@ -1,13 +1,9 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import App from './components/App';
-
-// You can choose your kind of history here (e.g. browserHistory)
-// Your routes.js file
 
 ReactDOM.render(
   <Router>

@@ -16,10 +16,7 @@ class MESSAGE extends React.Component {
   this.state = {
     date: new Date()
   }
-  this.click = this.click.bind(this);
-  }
-  click() {
-  }
+}
   render() {
       return (
         <div>

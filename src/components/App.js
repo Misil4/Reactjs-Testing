@@ -2,7 +2,6 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 const  user = {
-  date: new Date(),
   text: 'Mejores pilotos de la f1',
   author: {
     names: ['button','alonso','barrichelo'],
@@ -26,7 +25,7 @@ class MESSAGE extends React.Component {
           <main>
           <>
       <div className="Box">{<Clock/>} tiene usted {user.author.ages[1]} años
-      </div><div className="Nav"><Nav /><Link to="/index.html">Register</Link></div></>
+      </div><div className="Nav"><Nav /><Link to="/register">Register</Link></div></>
             {this.props.children}
           </main>
     
@@ -112,6 +111,7 @@ export default function App() {
             <li>
               <Link to="/clock">Clock</Link>
             </li>
+            <li><Link to="/register">Register</Link></li>
           </ul>
         </nav>
 
@@ -121,6 +121,9 @@ export default function App() {
           </Route>
           <Route path="/">
             <MESSAGE />
+          </Route>
+          <Route path="/register">
+            <Historia />
           </Route>
         </Switch>
       </div>

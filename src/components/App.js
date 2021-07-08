@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 const  user = {
   text: 'Mejores pilotos de la f1',
   author: {
-    names: ['button','alonso','barrichelo'],
-    ages: [43,39,50]
+    names: ['button','alonso','barrichelo','schumacher'],
+    ages: [43,39,50,53]
   }
 }
 class MESSAGE extends React.Component {
@@ -24,13 +24,13 @@ class MESSAGE extends React.Component {
     
           <main>
           <>
-      <div className="Box">{<Clock/>} tiene usted {user.author.ages[1]} años
+      <div className="Box">{<Clock/>} tiene usted {user.author.ages[3]} años
       </div><div className="Nav"><Nav /><Link to="/register">Register</Link><Text /></div></>
             {this.props.children}
           </main>
     
           <footer>
-            Copyright {user.author.names[0]} |{this.state.date.getFullYear()}
+            Copyright {user.author.names[3]} {this.state.date.getFullYear()}
           </footer>
         </div>
     )
@@ -51,7 +51,8 @@ class Nav extends React.Component {
 }
 const lista = {
   hoy: ['Cocinar','Dormir','Deporte'],
-  mañana: ['Programar','Comer','Jugar']
+  mañana: ['Programar','Comer','Jugar'],
+  pasado: ['Pagar','Estudiar','Descansar']
 }
 class Historia extends React.Component {
     render() {
@@ -100,7 +101,7 @@ class Clock extends React.Component {
   render() {
     return (
       <div>
-        <h1>Buenos dias, {user.author.names[1]}</h1>
+        <h1>Buenos dias, {user.author.names[3]}</h1>
         <h2>Son las {this.state.date.toLocaleTimeString()}.</h2>
       </div>
     );

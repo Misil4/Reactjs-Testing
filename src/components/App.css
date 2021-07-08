@@ -3,8 +3,10 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 2vmin;
   pointer-events: none;
+  position: relative;
+  top: 10rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -73,4 +75,24 @@ ul, li {
   position: relative;
   left: 38rem;
   background-color: red;
+}
+.Title {
+  position: relative;
+  left: 35rem;
+  top: 10rem;
+}
+.text {
+  position: relative;
+  top: 10%;
+  left: 1%;
+  height: 36rem;
+}
+footer {
+  position: relative;
+  bottom: 5rem;
+  text-align: center;
+}
+#img {
+  position: relative;
+  left: 20rem;
 }

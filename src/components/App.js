@@ -1,6 +1,9 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 const  user = {
   text: 'Mejores pilotos de la f1',
   author: {
@@ -24,13 +27,13 @@ class MESSAGE extends React.Component {
     
           <main>
           <>
-      <div className="Box">{<Clock/>} tiene usted {user.author.ages[3]} años
+      <div className="Box">{<Clock/>} tiene usted {user.author.ages[getRandomInt(0,4)]} años
       </div><div className="Nav"><Nav /><Link to="/register">Register</Link><Text /></div></>
             {this.props.children}
           </main>
     
           <footer>
-            Copyright {user.author.names[3]} {this.state.date.getFullYear()}
+            Copyright {user.author.names[getRandomInt(0,4)]} {this.state.date.getFullYear()}
           </footer>
         </div>
     )
@@ -79,6 +82,17 @@ class Historia extends React.Component {
       );
     }
   }
+  class Calendar extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        date: new Date()
+      }
+    }
+    setCalendar() {
+    }
+
+    }
 class Clock extends React.Component {
   constructor(props) {
     super(props);
@@ -101,7 +115,7 @@ class Clock extends React.Component {
   render() {
     return (
       <div>
-        <h1>Buenos dias, {user.author.names[3]}</h1>
+        <h1>Buenos dias, {user.author.names[getRandomInt(0,4)]}</h1>
         <h2>Son las {this.state.date.toLocaleTimeString()}.</h2>
       </div>
     );
@@ -119,7 +133,7 @@ class Text extends React.Component {
           <div className="text">
             <h1>Bienvenido a nuestra nueva pagina web</h1><br />
             <p>{this.state.text}</p><br />
-            <img src="https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/06/22/5fa4335996cdf.jpeg" height="auto" width="auto" id="img" alt="Hola"></img>
+            <img src="https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/06/22/5fa4335996cdf.jpeg" height="350px" width="350px" id="img" alt="Hola"></img>
           </div>
         );
       }

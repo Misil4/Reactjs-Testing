@@ -52,11 +52,11 @@ code {
     monospace;
 }
 .Box {
-background-color: orange;
+background-color: lightgray;
 position: relative;
 bottom: 1rem;
 width: 20%;
-height: 39rem;
+height: 40rem;
 }
 ul, li {
   display: inline;
@@ -65,9 +65,9 @@ ul, li {
 .Nav {
   height: 3rem;
   position: relative;
-  left: 16rem;
-  bottom: 40rem;
-  background-color: orange;
+  left: 17rem;
+  bottom: 41rem;
+  background-color: lightskyblue;
 }
 .register {
   height: 80%;
@@ -82,9 +82,10 @@ ul, li {
   top: 10rem;
 }
 .text {
+  background-color: lightskyblue;
   position: relative;
-  top: 10%;
-  left: 1%;
+  bottom: 0%;
+  right: 0%;
   height: 36rem;
 }
 footer {

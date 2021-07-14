@@ -130,14 +130,26 @@ WhenClick :function() {
   this.state.botNum2 = this.state.botNum;
 },
 Mult: function() {
-    this.state.botNum2 =this.state.botNum*this.state.botNum2;
+    this.state.botNum2 =this.state.botNum2*this.state.botNum;
+},
+Rest: function() {
+  this.state.botNum2 = this.state.botNum2-this.state.botNum;
+},
+Div: function() {
+  this.state.botNum2 = this.state.botNum2/this.state.botNum;
+},
+Sum: function() {
+  this.state.botNum2 = parseInt(this.state.botNum2)+parseInt(this.state.botNum);
 },
 render: function() {
   return (
     <div>
       <input type="text" onChange={this.WhenChange} name="value" />
-      <input type="button" onClick={this.WhenClick} value="Click on me"  />
+      <input type="button" onClick={this.WhenClick} value="Guardar Valor"  />
       <input type="button" onClick={this.Mult} value="Mult" />
+      <input type="button" onClick={this.Rest} value="Rest" />
+      <input type="button" onClick={this.Div} value="Div" />
+      <input type="button" onClick={this.Sum} value="Sum" />
       <h1>resultado = {this.state.botNum2}</h1>
     </div>
   );

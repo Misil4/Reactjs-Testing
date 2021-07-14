@@ -51,7 +51,7 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nav: ['Inicio','Historia','Tienda','Ver mas']
+      nav: ['Inicio','Historia','Tienda','Ver mas','Calculator']
     }
   }
   render() {
@@ -118,6 +118,31 @@ class Clock extends React.Component {
     );
   }
 }
+var createClass =  require('create-react-class');
+var Calculator = createClass({
+getInitialState: function() {
+  return {botNum : ''};
+},
+WhenChange :function(e) {
+  this.setState({botNum: e.target.value});
+},
+WhenClick :function() {
+  this.state.botNum2 = this.state.botNum;
+},
+Mult: function() {
+    this.state.botNum2 =this.state.botNum*this.state.botNum2;
+},
+render: function() {
+  return (
+    <div>
+      <input type="text" onChange={this.WhenChange} name="value" />
+      <input type="button" onClick={this.WhenClick} value="Click on me"  />
+      <input type="button" onClick={this.Mult} value="Mult" />
+      <h1>resultado = {this.state.botNum2}</h1>
+    </div>
+  );
+}
+});
 class Text extends React.Component {
       constructor(props) {
         super(props);
@@ -163,6 +188,9 @@ export default function App() {
           </Route>
           <Route path="/Ver mas">
             <Nav />
+          </Route>
+          <Route path="/Calculator">
+            <Calculator />
           </Route>
           <Route path="/">
             <MESSAGE />

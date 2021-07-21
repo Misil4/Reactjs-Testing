@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import { Doughnut } from 'react-chartjs-2';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -51,7 +52,7 @@ class Nav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      nav: ['Inicio','Historia','Tienda','Ver mas','Calculator']
+      nav: ['Inicio','Historia','Tienda','Ver mas','Calculator',"Canva"]
     }
   }
   render() {
@@ -69,13 +70,17 @@ class Historia extends React.Component {
     render() {
     return (
       <div>
-        <h1>Hoy</h1><br />
+        <Nav />
+        <h1><b>Hoy</b></h1><br />
         <ul>
           {lista.hoy.map((lista) =><li key={lista}>{lista}</li>)}
         </ul>
-        <h1>Mañana</h1><br />
+        <h1><b>Mañana</b></h1><br />
         <ul>
         {lista.mañana.map((lista)=><li key={lista}>{lista}</li>)}
+        </ul>
+        <h1><b>Pasado</b></h1><br />
+        <ul>{lista.pasado.map((lista) =><li key={lista}>{lista}</li>)}
         </ul>
       </div>
     )
@@ -84,9 +89,12 @@ class Historia extends React.Component {
   class Title extends React.Component {
     render() {
       return (
+        <>
+        <Nav />
         <div className="App-logo">
           <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" width="200rem" height="200rem" alt=""></img>
         </div>
+        </>
       );
     }
   }
@@ -128,29 +136,60 @@ WhenChange :function(e) {
 },
 WhenClick :function() {
   this.state.botNum2 = this.state.botNum;
+  document.getElementById("text").value = "";
+
 },
 Mult: function() {
     this.state.botNum2 =this.state.botNum2*this.state.botNum;
+    if (isNaN(this.state.botNum2)) {
+      alert("Primero tienes que guardar un valor antes de hacer una operacion")
+    }
 },
 Rest: function() {
-  this.state.botNum2 = this.state.botNum2-this.state.botNum;
+  this.state.botNum2-=this.state.botNum;
+  if (isNaN(this.state.botNum2)) {
+    alert("Primero tienes que guardar un valor antes de hacer una operacion")
+  }
 },
 Div: function() {
-  this.state.botNum2 = this.state.botNum2/this.state.botNum;
+  this.state.botNum2/=this.state.botNum;
+  if (isNaN(this.state.botNum2)) {
+    alert("Primero tienes que guardar un valor antes de hacer una operacion")
+  }
 },
 Sum: function() {
   this.state.botNum2 = parseInt(this.state.botNum2)+parseInt(this.state.botNum);
+  if (isNaN(this.state.botNum2)) {
+    alert("Primero tienes que guardar un valor antes de hacer una operacion")
+  }
+},
+Double: function() {
+   this.state.botNum2 = Math.pow(this.state.botNum2,this.state.botNum);
+  if (isNaN(this.state.botNum2)) {
+    alert("Primero tienes que guardar un valor antes de hacer una operacion")
+  }
+},
+Root : function() {
+  this.state.botNum2 = Math.sqrt(this.state.botNum2,this.state.botNum);
+  if (isNaN(this.state.botNum2)) {
+    alert("Primero tienes que guardar un valor antes de hacer una operacion")
+  }
 },
 render: function() {
   return (
-    <div>
-      <input type="text" onChange={this.WhenChange} name="value" />
-      <input type="button" onClick={this.WhenClick} value="Guardar Valor"  />
-      <input type="button" onClick={this.Mult} value="Mult" />
-      <input type="button" onClick={this.Rest} value="Rest" />
-      <input type="button" onClick={this.Div} value="Div" />
-      <input type="button" onClick={this.Sum} value="Sum" />
+    <div className="Calculator">
+      <table>
+      <a type="button" href="/">Inicio</a>
+      <input type="text" className="btn-primary" id="text" onChange={this.WhenChange} name="value" />
+      <input type="button" className="btn-primary" onClick={this.WhenClick} value="Guardar Valor"  /><br />
+      <input type="button" className="btn-primary" onClick={this.Mult} value="Mult" />
+      <input type="button" className="btn-primary" onClick={this.Rest} value="Rest" />
+      <input type="button" className="btn-primary" onClick={this.Div} value="Div" />
+      <input type="button" className="btn-primary" onClick={this.Sum} value="Sum" />
+      <input type="button" className="btn-primary" onClick={this.Double} value="Double" />
+      <input type="button" className="btn-primary" onClick={this.Root} value="Root" />
       <h1>resultado = {this.state.botNum2}</h1>
+      </table>
     </div>
   );
 }
@@ -167,11 +206,62 @@ class Text extends React.Component {
           <div className="text">
             <h1>Bienvenido a nuestra nueva pagina web</h1><br />
             <p className="mytext">{this.state.text}</p><br />
-            <img src="https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/06/22/5fa4335996cdf.jpeg" height="350px" width="350px" id="img" alt="Hola"></img>
+            <img src="https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2018/06/22/5fa4335996cdf.jpeg" height="60%" width="350px" id="img" alt="Hola"></img>
           </div>
         );
       }
 }
+const data = {
+  labels: ['Ubuntu', 'Debian', 'Linux Mint', 'ArchLinux', 'Fedora', 'RedHat'],
+  datasets: [
+    {
+      label: 'Distribuciones de linux',
+      data: [67, 45, 25, 12, 2, 3],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+      ],
+      borderWidth: 1,
+    },
+  ],
+};
+class Canva extends React.Component {
+constructor(props) {
+  super(props);
+}
+render() {
+  return (
+    <>
+    <div className='header'>
+      <Nav />
+      <h1 className='title'>Porcentaje de uso distribuciones linux</h1>
+      <div className='links'>
+        <a
+          className='btn btn-gh'
+          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/Doughnut.js'
+        >
+        </a>
+      </div>
+    </div>
+    <Doughnut data={data} />
+  </>
+  )
+}
+
+}
+
 export default function App() {
   return (
     <Router>
@@ -203,6 +293,9 @@ export default function App() {
           </Route>
           <Route path="/Calculator">
             <Calculator />
+          </Route>
+          <Route path="/Canva">
+            <Canva />
           </Route>
           <Route path="/">
             <MESSAGE />

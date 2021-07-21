@@ -68,6 +68,7 @@ ul, li {
   left: 17rem;
   bottom: 40rem;
   background-color: pink;
+  border: solid black 4px;
 }
 .register {
   height: 80%;
@@ -87,6 +88,7 @@ ul, li {
   bottom: 0%;
   right: 0%;
   height: 36rem;
+  border: solid black 4px;
 }
 footer {
   position: relative;
@@ -99,4 +101,26 @@ footer {
 }
 .btn-primary {
   background-color: red !important;
+}
+.Calculator {
+  margin: 15rem;
+  position: relative;
+  left: 15rem;
+  width: 20%;
+  border: solid black 3px;
+  background-color: grey;
+  box-sizing: inherit;
+}
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.links {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+.header {
+  text-align: center;
 }

@@ -4,6 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Drag from './drag.js';
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -37,7 +38,7 @@ class MESSAGE extends React.Component {
           <main>
           <>
       <div className="Box">{<Clock/>} tiene usted {user.author.ages[getRandomInt(0,4)]} años
-      </div><div className="Nav"><Nav /><Text /></div></>
+      </div><div clas sName="Nav"><Nav /><Text /></div></>
             {this.props.children}
           </main>
     
@@ -289,7 +290,7 @@ export default function App() {
             <Historia />
           </Route>
           <Route path="/Ver mas">
-            <Nav />
+            <Drag />
           </Route>
           <Route path="/Calculator">
             <Calculator />

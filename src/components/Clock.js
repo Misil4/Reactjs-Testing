@@ -1,5 +1,6 @@
 import React from 'react';
-import { getRandomInt,user } from './user.js';
+import './App.css';
+import { getRandomInt,user } from './User.js';
 class Clock extends React.Component {
     constructor(props) {
       super(props);

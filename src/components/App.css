@@ -52,10 +52,7 @@ code {
 }
 .Box {
 background-color: lightgray;
-position: relative;
-bottom: 1rem;
-width: 20%;
-height: 40rem;
+position: absolute;
 border: solid black 4px;
 }
 ul, li {
@@ -64,29 +61,26 @@ ul, li {
 }
 .Nav {
   height: 3rem;
-  position: relative;
+  position: absolute;
   left: 17rem;
-  bottom: 40rem;
   background-color: pink;
-  border: solid black 4px;
 }
 .register {
   height: 80%;
   width: 6%;
-  position: relative;
+  position: absolute;
   left: 38rem;
   background-color: red;
 }
 .Title {
-  position: relative;
+  position: absolute;
   left: 35rem;
-  top: 10rem;
+  top: 0rem;
 }
 .text {
   background-color:  pink;
-  position: relative;
-  bottom: 0%;
-  right: 0%;
+  position: absolute;
+  width: 1200px;
   height: 36rem;
   border: solid black 4px;
 }

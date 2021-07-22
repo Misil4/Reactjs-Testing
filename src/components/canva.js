@@ -1,6 +1,7 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import Nav from './Nav';
+import './App.css';
 const data = {
     labels: ['Ubuntu', 'Debian', 'Linux Mint', 'ArchLinux', 'Fedora', 'RedHat'],
     datasets: [
@@ -42,7 +43,7 @@ class Canva extends React.Component {
             </a>
           </div>
         </div>
-        <Doughnut data={data} />
+        <Doughnut data={data}/>
       </>
       )
     }

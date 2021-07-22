@@ -1,11 +1,11 @@
 import React from 'react';
-import Text from './text';
+import Text from './Text';
 import Clock from './Clock';
-import { getRandomInt,user } from './user';
+import { getRandomInt,user } from './User';
 import Nav from './Nav';
+import './App.css';
 
 class MESSAGE extends React.Component {
-  
     constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,7 @@ class MESSAGE extends React.Component {
             <main>
             <>
         <div className="Box">{<Clock/>} tiene usted {user.author.ages[getRandomInt(0,4)]} años
-        </div><div clas sName="Nav"><Nav /><Text /></div></>
+        </div><div className="Nav"><Nav /><Text /></div></>
               {this.props.children}
             </main>
       

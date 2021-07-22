@@ -2,10 +2,10 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Drag from './drag.js';
-import MESSAGE from './message';
+import Drag from './Drag.js';
+import MESSAGE from './Message';
 import Calculator from './Calculator';
-import Canva from './canva';
+import Canva from './Canva';
 import Title from './Title';
 import Historia from './Historia';
 <link

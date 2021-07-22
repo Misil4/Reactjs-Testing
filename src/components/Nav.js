@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 class Nav extends React.Component {

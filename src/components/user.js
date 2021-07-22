@@ -1,7 +1,7 @@
 const  user = {
-    text: 'Barca',
+    text: 'Amigos',
     author: {
-      names: ['Pique','Messi','Busquets','Jordi'],
+      names: ['Eneko','Xabi','Imanol','Aritz'],
       ages: [34,34,33,32]
     }
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './Nav';
+import './App.css';
 const lista = {
     hoy: ['Cocinar','Dormir','Deporte'],
     mañana: ['Programar','Comer','Jugar'],

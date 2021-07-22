@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 var createClass =  require('create-react-class');
 var Calculator = createClass({
     getInitialState: function() {
